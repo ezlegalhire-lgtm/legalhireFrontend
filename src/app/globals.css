@@ -1,0 +1,1123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-anton: var(--font-anton), Arial, sans-serif;
+    --font-arial: Arial, sans-serif;
+
+    /* Updated Purple Color Palette */
+    --color-purple-50: #faf5ff;
+    --color-purple-500: #a855f7;
+    --color-purple-600: #9333ea;
+    --color-purple-700: #7e22ce;
+    --color-violet-500: #8b5cf6;
+    --color-violet-600: #7c3aed;
+    --color-violet-700: #6d28d9;
+    --color-purple-800: #6b21a8;
+    --color-purple-900: #581c87;
+    --color-slate-50: #f8fafc;
+    --color-slate-100: #f1f5f9;
+    --color-slate-200: #e2e8f0;
+    --color-slate-600: #475569;
+    --color-slate-700: #334155;
+    --color-slate-900: #0f172a;
+    --grad: linear-gradient(90deg, #7b2ff7 0%, #f107a3 100%);
+
+    /* Neumorphic colors - Updated for purple theme */
+    --neo-bg: #faf5ff;
+    --neo-shadow-dark: #e9d5ff;
+    --neo-shadow-light: #ffffff;
+  }
+
+  .gradient-border {
+    border-image: var(--grad) 1;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-arial);
+    line-height: 1.5;
+  }
+  .anton {
+    font-family: var(--font-anton);
+  }
+
+  .light-anton {
+    font-weight: 400 !important;
+    -webkit-text-stroke: 0.4px transparent;
+    letter-spacing: 0.5px !important;
+    opacity: 0.9;
+  }
+
+  .common-color {
+    /* color: #3add22; */
+    color: #ffcb05;
+  }
+
+  .heading {
+    @apply text-3xl sm:text-6xl  text-slate-900 spacing-content text-center sm:text-start;
+    font-family: var(--font-anton);
+  }
+
+  /* Remove autofill background color */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
+
+  /* Button Base - Enhanced Professional Styling */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .btn-primary {
+    @apply bg-purple-600 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 hover:bg-purple-700 focus:ring-purple-500;
+  }
+
+  .btn-secondary {
+    @apply bg-white border-2 border-slate-300 text-slate-700 hover:border-purple-300 hover:text-purple-700 focus:ring-purple-300;
+  }
+
+  .btn-outline {
+    @apply border-2 border-purple-600 text-purple-600 hover:bg-purple-50 focus:ring-purple-500;
+  }
+
+  /* Neumorphic Card Base - Updated for purple theme */
+  .card-neo {
+    @apply rounded-[15px] bg-[#faf5ff] transition-all border border-purple-300;
+    /* box-shadow: 2px 2px 15px #e9d5ff, -2px -2px 15px #ffffff; */
+  }
+
+  @media (max-width: 640px) {
+    .card-neo {
+      @apply border border-purple-300;
+      box-shadow: none;
+    }
+  }
+
+  .card-neo:hover {
+    transform: translateY(-1px);
+    box-shadow: 5px 5px 12px #e9d5ff, -5px -5px 12px #ffffff;
+  }
+
+  /* Neumorphic Row/Inset - Updated for purple theme */
+  .row-neo {
+    @apply rounded-[14px] bg-[#faf5ff] px-4 py-3 transition-all;
+    box-shadow: inset 2px 2px 4px #e9d5ff, inset -2px -2px 4px #ffffff;
+  }
+
+  .row-neo:hover {
+    transform: translateY(-1px);
+    box-shadow: inset 1px 1px 2px #e9d5ff, inset -1px -1px 2px #ffffff,
+      0 8px 16px rgba(124, 58, 237, 0.15);
+  }
+
+  /* Neumorphic Pill - Updated for purple theme */
+  .pill-neo {
+    @apply rounded-full bg-[#faf5ff] px-4 py-2 text-sm font-medium;
+    box-shadow: inset 2px 2px 4px #e9d5ff, inset -2px -2px 4px #ffffff;
+  }
+
+  /* Solid Button - Professional Single Color with Enhanced Rounding */
+  .btn-solid {
+    @apply rounded-[0.8rem] bg-purple-600 text-white font-bold shadow-lg transition-all;
+  }
+
+  .btn-solid:hover {
+    @apply shadow-xl bg-purple-700;
+    transform: translateY(-2px);
+  }
+
+  .btn-solid:active {
+    transform: translateY(0);
+    @apply bg-purple-800;
+  }
+
+  /* Menu Navigation Item - Enhanced Rounded Corners */
+  .nav-item {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-2xl font-semibold text-slate-600 transition-all duration-300;
+  }
+
+  .nav-item:hover {
+    @apply text-slate-900 bg-slate-50 shadow-sm;
+    transform: translateY(-1px);
+  }
+
+  .nav-item.active {
+    @apply text-violet-700 bg-violet-50;
+  }
+
+  /* Nav Item with Purple Gradient on Active */
+  .nav-item-gradient {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-2xl font-semibold transition-all duration-300;
+  }
+
+  .nav-item-gradient.active {
+    @apply bg-gradient-to-r from-purple-600 to-violet-600 text-white shadow-md transform -translate-y-0.5;
+  }
+
+  .nav-item-gradient:not(.active) {
+    @apply bg-white text-slate-900 hover:bg-gradient-to-r hover:from-purple-600 hover:to-violet-600 hover:text-white hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  /* Mega Menu Container */
+  .mega-menu {
+    @apply absolute left-0 top-full mt-2 bg-white rounded-2xl shadow-2xl border-2 border-slate-200 p-6 opacity-0 invisible transition-all duration-300;
+    transform: translateY(-10px);
+  }
+
+  .mega-menu.show {
+    @apply opacity-100 visible;
+    transform: translateY(0);
+  }
+
+  /* Mega Menu Category */
+  .mega-menu-category {
+    @apply mb-3 pb-2 border-b border-slate-200;
+  }
+
+  .mega-menu-category-title {
+    @apply flex items-center gap-2 font-bold text-slate-900;
+  }
+
+  .mega-menu-item {
+    @apply block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-violet-50 hover:text-violet-700 transition-colors;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    @apply lg:hidden bg-white border-t border-slate-200 shadow-2xl overflow-y-auto;
+    max-height: calc(100vh - 4rem);
+    animation: slideDown 0.3s ease-out;
+  }
+
+  /* Mobile Menu Item - Enhanced Rounded Corners */
+  .mobile-menu-item {
+    @apply flex items-center gap-3 py-3 px-4 text-base font-semibold rounded-2xl transition-all duration-200 border-2 border-transparent;
+  }
+
+  .mobile-menu-item:hover {
+    @apply bg-slate-50 shadow-sm;
+    transform: translateX(4px);
+  }
+
+  .mobile-menu-item.active {
+    @apply text-violet-700 bg-violet-50 border-violet-200;
+  }
+
+  /* Accordion - Enhanced Rounded Corners */
+  .accordion-trigger {
+    @apply w-full flex items-center justify-between py-3 px-4 text-base font-semibold text-slate-700 hover:bg-slate-50 transition-all duration-200 rounded-2xl;
+  }
+
+  .accordion-trigger:hover {
+    @apply shadow-sm;
+  }
+
+  .accordion-content {
+    @apply bg-slate-50 px-2 py-2 space-y-2 overflow-hidden;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  /* User Dropdown */
+  .user-dropdown {
+    @apply absolute right-0 mt-3 w-80 bg-white rounded-2xl shadow-2xl border-2 border-slate-200 overflow-hidden opacity-0 invisible transition-all duration-300;
+    transform: translateY(-10px);
+  }
+
+  .user-dropdown.show {
+    @apply opacity-100 visible;
+    transform: translateY(0);
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  .user-dropdown-header {
+    @apply px-5 py-5 bg-purple-600 text-white;
+  }
+
+  .user-dropdown-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-violet-50 transition-colors;
+  }
+
+  .user-dropdown-icon {
+    @apply w-9 h-9 bg-violet-100 rounded-lg flex items-center justify-center group-hover:bg-violet-200 transition-colors;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white rounded-2xl border border-slate-200 shadow-sm transition-shadow;
+  }
+
+  .card-hover {
+    @apply hover:shadow-lg;
+  }
+
+  /* Input Fields - Enhanced Rounded Corners */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-200 focus:outline-none transition-colors;
+  }
+
+  .input-error {
+    @apply border-red-500 focus:border-red-500 focus:ring-red-200;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .badge-purple {
+    @apply bg-purple-100 text-purple-700 border border-purple-200;
+  }
+
+  .badge-violet {
+    @apply bg-violet-100 text-violet-700 border border-violet-200;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-700 border border-green-200;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-700 border border-yellow-200;
+  }
+
+  /* Section Spacing */
+  .section {
+    @apply py-8 md:py-12 lg:py-16;
+  }
+
+  .section-sm {
+    @apply py-6 md:py-8 lg:py-10;
+  }
+
+  .section-xs {
+    @apply py-4 md:py-6 lg:py-8;
+  }
+
+  /* Header Backdrop */
+  .header-blur {
+    @apply bg-white/95 backdrop-blur-md;
+  }
+
+  /* Service Row */
+  .service-row {
+    @apply flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white p-4 hover:shadow-sm transition-shadow cursor-pointer;
+  }
+
+  /* Retainer Plan Row */
+  .retainer-plan {
+    @apply rounded-2xl border border-purple-200 bg-white p-4 hover:shadow-md transition-shadow;
+  }
+
+  /* Pricing Card */
+  .pricing-card {
+    @apply relative rounded-2xl border-2 border-slate-200 bg-white p-5 md:p-6 transition-all hover:border-purple-200 hover:shadow-lg;
+  }
+
+  .pricing-card-highlighted {
+    @apply border-purple-400 bg-gradient-to-br from-purple-50 to-violet-50 shadow-2xl scale-105;
+  }
+
+  /* Testimonial Card */
+  .testimonial-card {
+    @apply bg-white rounded-xl p-5 border border-purple-300 shadow-md hover:shadow-xl transition-all;
+  }
+
+  /* Feature Card */
+  .feature-card {
+    @apply bg-white rounded-xl p-5 border border-slate-200 hover:shadow-lg transition-all;
+  }
+
+  /* Gradient Text - Updated for purple theme */
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent;
+  }
+
+  /* Brand Text - Purple Theme */
+  .brand-text {
+    background: linear-gradient(90deg, #9333ea 0%, #7c3aed 50%, #6d28d9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Grid Responsive */
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6;
+  }
+
+  .grid-2-col {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12;
+  }
+
+  .grid-3-col {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6;
+  }
+
+  .grid-4-col {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6;
+  }
+
+  /* Flex Responsive */
+  .flex-responsive {
+    @apply flex flex-col md:flex-row items-center gap-4;
+  }
+
+  /* Text Responsive */
+  .text-heading-1 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-tight;
+  }
+
+  .text-heading-2 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+  }
+
+  .text-heading-3 {
+    @apply text-xl sm:text-2xl md:text-3xl font-bold leading-tight;
+  }
+
+  .text-body-lg {
+    @apply text-base md:text-lg lg:text-xl leading-relaxed;
+  }
+
+  .text-body {
+    @apply text-sm md:text-base leading-relaxed;
+  }
+
+  /* Spacing Utilities */
+  .spacing-section {
+    @apply mb-6 md:mb-8 lg:mb-10;
+  }
+
+  .spacing-content {
+    @apply mb-3 md:mb-4 lg:mb-6;
+  }
+
+  /* Header Sticky */
+  .header-sticky {
+    @apply sticky top-0 z-50 transition-all duration-300;
+  }
+
+  .header-scrolled {
+    @apply bg-white/95 backdrop-blur-md shadow-lg;
+  }
+
+  /* Backdrop */
+  .backdrop {
+    @apply fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      max-height: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      max-height: 1000px;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(147, 51, 234, 0.6);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  /* Animation Classes */
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+    background: linear-gradient(to right, #f1f5f9 4%, #e2e8f0 25%, #f1f5f9 36%);
+    background-size: 1000px 100%;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Gradient Backgrounds - Updated for purple theme */
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+  }
+
+  .bg-gradient-secondary {
+    background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  }
+
+  .bg-gradient-page {
+    background: linear-gradient(180deg, #faf5ff 0%, #f3e8ff 100%);
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(135deg, #ffffff 0%, #faf5ff 50%, #f3e8ff 100%);
+  }
+
+  .bg-gradient-hero {
+    background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+  }
+
+  /* Shadow Utilities - Updated for purple theme */
+  .shadow-soft {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  }
+
+  .shadow-glow-hover {
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.5);
+  }
+
+  .shadow-neo {
+    box-shadow: 14px 14px 28px #e9d5ff, -14px -14px 28px #ffffff;
+  }
+
+  .shadow-neo-hover {
+    box-shadow: 16px 16px 32px #e9d5ff, -16px -16px 32px #ffffff;
+  }
+
+  .shadow-neo-inset {
+    box-shadow: inset 2px 2px 4px #e9d5ff, inset -2px -2px 4px #ffffff;
+  }
+
+  .shadow-neo-inset-hover {
+    box-shadow: inset 1px 1px 2px #e9d5ff, inset -1px -1px 2px #ffffff,
+      0 8px 16px rgba(124, 58, 237, 0.15);
+  }
+
+  /* Backdrop Blur */
+  .backdrop-blur-light {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .backdrop-blur-medium {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .backdrop-blur-heavy {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  /* Text Truncate Multi-line */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Scrollbar Styling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  /* Safe Area Padding (for mobile notches) */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Focus Visible */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2;
+  }
+
+  .focus-ring-inset {
+    @apply focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-600;
+  }
+
+  /* Aspect Ratios */
+  .aspect-video-custom {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-square-custom {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Print Utilities */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    .print-only {
+      display: block !important;
+    }
+  }
+
+  /* Dark Mode Support (if needed) */
+  @media (prefers-color-scheme: dark) {
+    .dark-mode-aware {
+      /* Add dark mode styles if needed */
+    }
+  }
+
+  /* Accessibility - Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Custom Utility: Interactive Element */
+  .interactive {
+    @apply cursor-pointer select-none transition-all duration-200 active:scale-95;
+  }
+
+  /* Custom Utility: Disabled State */
+  .disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+
+  /* Loading State */
+  .loading {
+    @apply opacity-60 pointer-events-none animate-pulse;
+  }
+
+  /* Menu Specific Utilities */
+  .menu-item-hover {
+    @apply transition-colors duration-200 hover:bg-violet-50 hover:text-violet-700;
+  }
+
+  .menu-active {
+    @apply text-violet-700 bg-violet-50;
+  }
+
+  /* Dropdown Arrow Rotation */
+  .dropdown-arrow {
+    @apply transition-transform duration-300;
+  }
+
+  .dropdown-arrow.open {
+    @apply rotate-180;
+  }
+
+  /* Mobile Menu Slide */
+  .mobile-menu-enter {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  .mobile-menu-exit {
+    animation: slideUp 0.3s ease-in;
+  }
+
+  /* Mega Menu Fade */
+  .mega-menu-enter {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .mega-menu-exit {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in;
+  }
+
+  /* User Dropdown Scale */
+  .user-dropdown-enter {
+    animation: scaleIn 0.2s ease-out;
+  }
+
+  /* Hover Lift Effect */
+  .hover-lift {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+
+  /* Hover Grow Effect */
+  .hover-grow {
+    @apply transition-transform duration-300;
+  }
+
+  .hover-grow:hover {
+    @apply scale-105;
+  }
+
+  /* Hover Glow Effect */
+  .hover-glow {
+    @apply transition-shadow duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+  }
+
+  /* Glass Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Third-party Library Overrides */
+/* Add any custom styling for libraries like React Select, Date Pickers, etc. */
+
+/* Custom z-index layers */
+.z-dropdown {
+  z-index: 1000;
+}
+
+.z-modal {
+  z-index: 9999;
+}
+
+.z-toast {
+  z-index: 10000;
+}
+
+/* Selection Color */
+::selection {
+  background-color: rgba(147, 51, 234, 0.3);
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(147, 51, 234, 0.3);
+  color: inherit;
+}
+
+/* ---------------------------------- */
+/* 1. Base List Reset/Setup           */
+/* ---------------------------------- */
+.rich-text-content ul,
+.rich-text-content ol {
+  /* Resets default margin and padding to start fresh */
+  margin: 1em 0; /* Add vertical spacing above and below the list */
+  padding-left: 2.5em; /* Controls the indentation for list markers */
+  line-height: 1.6; /* Improves readability within list items */
+}
+
+/* ---------------------------------- */
+/* 2. Unordered List (ul) Styles      */
+/* ---------------------------------- */
+.rich-text-content ul {
+  list-style-type: none; /* Remove default marker (disk/square) */
+}
+
+/* Custom Marker Styling for ul */
+.rich-text-content ul li::before {
+  content: "•"; /* Use a custom character (e.g., a large bullet) */
+  color: #000000; /* Choose your brand color */
+  font-weight: bold;
+  display: inline-block; /* Required to position the marker */
+  width: 1em; /* Space for the marker */
+  margin-left: -1em; /* Pull the marker back into the padding area */
+}
+
+/* ---------------------------------- */
+/* 3. Ordered List (ol) Styles        */
+/* ---------------------------------- */
+.rich-text-content ol {
+  /* Keep default numbering but style it */
+  list-style-type: decimal;
+  /* You can override list-style-position if needed, 
+       'inside' can look cleaner if text wrapping is an issue */
+  list-style-position: outside;
+}
+
+/* Style the text inside the li (optional) */
+.rich-text-content li {
+  padding-left: 0.5em; /* Add some space between marker and text */
+}
+
+/* Style nested lists (optional) */
+.rich-text-content ul ul,
+.rich-text-content ol ol {
+  margin-top: 0.5em; /* Less space for nested lists */
+}
+
+.rich-text-excerpt {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* <-- Sets the limit to 4 lines */
+  max-height: 6.4em; /* Optional: Calculate max-height based on line-height * 4 */
+  /* Add your specific styles here, e.g., border, background */
+}
+
+
+
+/* ---------------------------------- */
+/* 1. Root Container                  */
+/* ---------------------------------- */
+.rich-text-content {
+  /* Set base font size and line height for consistency */
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333; /* Dark text color */
+}
+
+/* ---------------------------------- */
+/* 2. Headings (h1, h2, h3)          */
+/* ---------------------------------- */
+
+.rich-text-content h1 {
+  font-size: 2.2em; /* ~35px */
+  margin: 1em 0 0.5em 0;
+  border-bottom: 2px solid #eeeeee;
+  padding-bottom: 0.2em;
+}
+
+.rich-text-content h2 {
+  font-size: 1.8em; /* ~29px */
+  margin: 1em 0 0.5em 0;
+  color: #000000; /* Brand blue for subheadings */
+}
+
+.rich-text-content h3 {
+  font-size: 1.4em; /* ~22px */
+  margin: 1em 0 0.4em 0;
+  font-weight: bold;
+}
+
+/* ---------------------------------- */
+/* 3. Basic Text & Structure          */
+/* ---------------------------------- */
+
+.rich-text-content p {
+  margin-bottom: 1em; /* Space between paragraphs */
+}
+
+.rich-text-content a {
+  color: #007bff; /* Standard link blue */
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.rich-text-content a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.rich-text-content blockquote {
+  /* Separates the quote visually */
+  border-left: 5px solid #cccccc;
+  padding: 10px 20px;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  font-style: italic;
+  color: #555555;
+}
+
+.rich-text-content hr {
+  /* Horizontal Rule style */
+  border: none;
+  border-top: 1px solid #dddddd;
+  margin: 2em 0;
+}
+
+/* ---------------------------------- */
+/* 4. Inline Text Formatting          */
+/* ---------------------------------- */
+
+.rich-text-content strong,
+.rich-text-content b {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.rich-text-content em,
+.rich-text-content i {
+  font-style: italic;
+}
+
+.rich-text-content code {
+  /* For inline code snippets */
+  font-family: "Courier New", monospace;
+  background-color: #f1f1f1;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.rich-text-content pre {
+  /* For multi-line code blocks */
+  background-color: #272822; /* Dark background */
+  color: #f8f8f2; /* Light text */
+  padding: 15px;
+  overflow-x: auto; /* Handles long lines */
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+}
+
+.rich-text-content pre code {
+  /* Remove inline code styles inside pre */
+  background-color: transparent;
+  padding: 0;
+  font-size: 1em;
+}
+
+.rich-text-content sup {
+  vertical-align: super;
+  font-size: 0.8em;
+}
+
+.rich-text-content sub {
+  vertical-align: sub;
+  font-size: 0.8em;
+}

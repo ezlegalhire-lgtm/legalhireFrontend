@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Our Portal Works — Online Legal UAE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              accent: '#5E17EB',
+              light: '#8756F0',
+              dark: '#3E0DB0',
+              complement: '#D66BE8'
+            },
+          },
+          boxShadow: {
+            soft: '0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06)',
+            glow: '0 10px 30px rgba(94,23,235,0.35)'
+          },
+          borderRadius: { xl2: '14px' }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root{ --grad: linear-gradient(90deg, #5E17EB 0%, #8756F0 50%, #D66BE8 100%); }
+    body{ font-family: Inter, sans-serif; background:#f8fafc; }
+    .poppins{ font-family: Poppins, Inter, sans-serif; }
+    .gradient-text{ background: var(--grad); -webkit-background-clip: text; background-clip: text; color:transparent; }
+    .btn-grad{ background: var(--grad); color:white; }
+    .btn-grad:hover{ filter:brightness(0.95); box-shadow:0 10px 30px rgba(94,23,235,0.35); }
+    .section{ max-width:1150px; margin:auto; padding:4rem 1rem; }
+    .card{ background:white; border:1px solid #e5e7eb; border-radius:1rem; box-shadow:0 1px 2px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.08); padding:1.5rem; }
+    .reveal{ opacity:0; transform:translateY(20px); transition:all .8s ease; }
+    .reveal.show{ opacity:1; transform:none; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="text-white text-center py-20" style="background:var(--grad);">
+    <div class="section">
+      <h1 class="text-4xl md:text-5xl font-extrabold poppins">Your Integrated Legal Tech Portal.</h1>
+      <p class="text-white/90 mt-3 text-lg max-w-2xl mx-auto">Seamlessly connect with UAE lawyers, manage cases, meetings, and documents — all powered by smart technology.</p>
+      <div class="flex justify-center gap-4 mt-6">
+        <button class="px-6 py-3 rounded-lg font-semibold btn-grad">Book Consultation</button>
+        <button class="px-6 py-3 rounded-lg font-semibold border border-white/50 hover:bg-white/10">View Plans</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Individuals -->
+  <section class="section text-center">
+    <h2 class="text-3xl font-bold poppins mb-4 gradient-text">For Individuals — Legal Help in Minutes</h2>
+    <p class="text-slate-600 mb-10">Everything from booking to document delivery happens online — fast, secure, and transparent.</p>
+    <div class="grid md:grid-cols-5 gap-5 text-left text-sm">
+      <div class="card reveal"><h3 class="font-semibold">1️⃣ Choose a Service</h3><p>Consultation, document review, or tenancy dispute — just a few clicks away.</p></div>
+      <div class="card reveal"><h3 class="font-semibold">2️⃣ Pay Securely</h3><p>Pay online via Stripe UAE or FAB with instant confirmation.</p></div>
+      <div class="card reveal"><h3 class="font-semibold">3️⃣ Get Matched</h3><p>We assign the right UAE lawyer based on your case type and location.</p></div>
+      <div class="card reveal"><h3 class="font-semibold">4️⃣ Chat or Meet</h3><p>Connect instantly via built-in chat or video call through your dashboard.</p></div>
+      <div class="card reveal"><h3 class="font-semibold">5️⃣ Receive Documents</h3><p>Final drafts, notices, and contracts saved securely in your account.</p></div>
+    </div>
+  </section>
+
+  <!-- For Businesses -->
+  <section class="section text-center bg-slate-50">
+    <h2 class="text-3xl font-bold poppins mb-4 gradient-text">For Businesses — Smarter Retainers</h2>
+    <p class="text-slate-600 mb-10">Manage all your company’s legal work with predictable pricing and dedicated support.</p>
+    <div class="grid md:grid-cols-5 gap-5 text-left text-sm">
+      <div class="card reveal"><h3 class="font-semibold">1️⃣ Subscribe to a Plan</h3><p>Choose Starter, Growth, or Corporate based on your team size.</p></div>
+      <div class="card reveal"><h3 class="font-semibold">2️⃣ Receive Credentials</h3><p>Login credentials for your private legal dashboard.</p></div>
+      <div class="card reveal"><h3 class="font-semibold">3️⃣ Get a Dedicated Team</h3><p>Assigned account manager + specialist lawyers.</p></div>
+      <div class="card reveal"><h3 class="font-semibold">4️⃣ Track Hours & Tasks</h3><p>Monitor usage, invoices, and case updates live.</p></div>
+      <div class="card reveal"><h3 class="font-semibold">5️⃣ Modify Anytime</h3><p>Upgrade, pause, or change your plan whenever needed.</p></div>
+    </div>
+  </section>
+
+  <!-- Dashboard Overview -->
+  <section class="section">
+    <h2 class="text-3xl font-bold poppins mb-4 gradient-text text-center">Your Client Dashboard — Total Control</h2>
+    <p class="text-slate-600 text-center mb-10">Everything you need to manage your legal work — in one place.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 text-sm">
+      <div class="card reveal">📁 <b>Upload & Receive Documents</b><br>Store and sign documents securely.</div>
+      <div class="card reveal">💬 <b>Chat with Your Lawyer</b><br>Instant updates, messages, and file sharing.</div>
+      <div class="card reveal">📅 <b>Schedule Meetings</b><br>Integrated calendar and reminders.</div>
+      <div class="card reveal">🧾 <b>Track Payments</b><br>Invoices, history, and transaction receipts.</div>
+      <div class="card reveal">🤖 <b>AI Draft Assistant</b><br>Auto-generate drafts for faster work.</div>
+      <div class="card reveal">🔒 <b>UAE-Based Hosting</b><br>Bank-level encryption and privacy.</div>
+    </div>
+  </section>
+
+  <!-- Payments & Security -->
+  <section class="section bg-slate-50 text-center">
+    <h2 class="text-3xl font-bold poppins mb-4 gradient-text">Payments & Security</h2>
+    <p class="text-slate-600 mb-6 max-w-2xl mx-auto">We ensure every transaction and document remains safe, encrypted, and UAE-compliant.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm text-left">
+      <div class="card reveal">💳 Payments via Stripe UAE & FAB</div>
+      <div class="card reveal">🧾 Instant invoices for all transactions</div>
+      <div class="card reveal">🔒 SSL Encryption & ISO 27001 Compliance</div>
+      <div class="card reveal">🇦🇪 UAE Data Centers — Local Hosting</div>
+      <div class="card reveal">✅ Verified Licensed Lawyers</div>
+      <div class="card reveal">↩️ Refund & Service Replacement Policy</div>
+    </div>
+  </section>
+
+  <!-- Comparison -->
+  <section class="section text-center">
+    <h2 class="text-3xl font-bold poppins mb-4 gradient-text">Why Clients Choose Us</h2>
+    <p class="text-slate-600 mb-8">A modern, transparent, and tech-powered experience.</p>
+    <div class="overflow-x-auto">
+      <table class="min-w-full border border-slate-200 text-sm">
+        <thead class="bg-slate-100 text-slate-800">
+          <tr><th class="p-3 text-left">Feature</th><th class="p-3">Traditional Firms</th><th class="p-3" style="background:var(--grad); color:white;">Online Legal UAE</th></tr>
+        </thead>
+        <tbody>
+          <tr class="border-t"><td class="p-3 text-left">Booking</td><td>Phone & Email</td><td>Online Instant</td></tr>
+          <tr class="border-t"><td class="p-3 text-left">Pricing</td><td>Hourly Billing</td><td>Fixed / Monthly</td></tr>
+          <tr class="border-t"><td class="p-3 text-left">Tracking</td><td>None</td><td>Live Dashboard</td></tr>
+          <tr class="border-t"><td class="p-3 text-left">Document Handling</td><td>Manual</td><td>Secure E‑Vault</td></tr>
+          <tr class="border-t"><td class="p-3 text-left">Support</td><td>Slow Response</td><td>24/7 Portal Access</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section bg-slate-50">
+    <h2 class="text-3xl font-bold poppins mb-6 gradient-text text-center">Client Success Stories</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="card reveal"><p>“I booked a consultation online and had my tenancy issue resolved the same day. Everything was professional and fast.”</p><p class="text-sm text-slate-600 mt-2">— Fatima K., Dubai</p></div>
+      <div class="card reveal"><p>“Our SME switched to a retainer. Now we track every task, document, and invoice through the dashboard. Zero surprises.”</p><p class="text-sm text-slate-600 mt-2">— Ahmed A., Noor Trading LLC</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2 class="text-3xl font-bold poppins mb-6 gradient-text text-center">Frequently Asked Questions</h2>
+    <div class="max-w-2xl mx-auto">
+      <details class="border rounded-lg p-3 mb-3 reveal"><summary class="cursor-pointer font-medium text-slate-800">How soon will I be assigned a lawyer?</summary><p class="mt-2 text-sm text-slate-600">Usually within 2 hours during working days.</p></details>
+      <details class="border rounded-lg p-3 mb-3 reveal"><summary class="cursor-pointer font-medium text-slate-800">Can I change or cancel my retainer?</summary><p class="mt-2 text-sm text-slate-600">Yes, you can modify or pause your plan anytime.</p></details>
+      <details class="border rounded-lg p-3 mb-3 reveal"><summary class="cursor-pointer font-medium text-slate-800">Is my data secure?</summary><p class="mt-2 text-sm text-slate-600">Yes, all data is encrypted and hosted on UAE servers.</p></details>
+      <details class="border rounded-lg p-3 reveal"><summary class="cursor-pointer font-medium text-slate-800">Do you support Arabic and English?</summary><p class="mt-2 text-sm text-slate-600">Yes, the entire portal is bilingual.</p></details>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="text-center text-white py-16" style="background:var(--grad);">
+    <h2 class="text-3xl font-extrabold poppins">Experience the Future of Legal Services</h2>
+    <p class="text-white/90 mt-2">Join hundreds of UAE clients using Online Legal UAE today.</p>
+    <div class="flex justify-center gap-4 mt-6">
+      <button class="px-6 py-3 rounded-lg font-semibold btn-grad">Book Consultation</button>
+      <button class="px-6 py-3 rounded-lg font-semibold border border-white/50 hover:bg-white/10">View Plans</button>
+    </div>
+  </section>
+
+  <footer class="text-center py-6 text-sm text-slate-600 bg-white border-t border-slate-200">
+    © <span id="year"></span> Online Legal UAE — All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const reveals = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', () => {
+      reveals.forEach(r => {
+        const rect = r.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) r.classList.add('show');
+      });
+    });
+  </script>
+
+</body>
+</html>
