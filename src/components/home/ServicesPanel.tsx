@@ -13,7 +13,7 @@ export default function ServicesPanel() {
         <div>
           <h3 className="text-lg light-anton anton">Choose Your Legal Service</h3>
           <p className="text-[12px] text-gray-500">
-            Select from instant consultations or monthly retainer plans
+            One-time Consultation or monthly retainer plans
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export default function ServicesPanel() {
             }`}
             onClick={() => setView("services")}
           >
-            Instantly Available
+            One-Time Services
           </button>
           <button
             className={`flex-1 p-2.5 rounded-r-xl transition-all text-[14px] duration-300 ${

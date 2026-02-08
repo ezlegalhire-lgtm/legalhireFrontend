@@ -1,14 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Calendar, MessageSquare } from "lucide-react";
 import ServicesPanel from "./ServicesPanel";
 import Link from "next/link";
+import { AskModal } from "../legal-resources/Modals";
 
 const PRIMARY_COLOR = "#8B23C2"; // Primary Purple
 const ACCENT_COLOR = "#fc4aa9"; // Fuchsia Highlight
 
 export default function HeroSection() {
+  const [askOpen, setAskOpen] = useState(false);
   return (
     <section className="bg-gradient-hero">
       <div className="container pt-4 md:pt-[2rem] 2xl:pt-[5rem]">
@@ -23,8 +25,8 @@ export default function HeroSection() {
               In Association with Nawal Salem Advocates and Legal Consultants
             </div>
             <div className="text-sm text-purple-600 mb-6 ">
-              Bringing Legal Excellence to your Screen – Online Services in UAE
-              Redefined
+              Online legal services designed for individuals and businesses in
+              the UAE
             </div>
 
             {/* Main Heading */}
@@ -38,9 +40,9 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-body-md max-w-2xl spacing-content text-center sm:text-start text-gray-500">
-              Book consultations with UAE lawyers, pay securely by card, and
-              meet via integrated video conferencing — all from one easy portal.
-              Fast response, transparent pricing, and private communication.
+              Book consultations with UAE lawyers, pay securely online, and meet
+              through video calls using one simple portal with transparent and
+              affordable pricing and private communication.
             </p>
 
             {/* Mobile CTA Buttons - Mobile Only */}
@@ -88,8 +90,8 @@ export default function HeroSection() {
                 </span>
               </Link>
 
-              <Link
-                href="#contact"
+              <button
+                onClick={() => setAskOpen(true)}
                 className="card-neo flex-1 min-w-[200px] max-w-[250px] p-6 flex flex-col items-center justify-center hover:scale-105 group"
               >
                 <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-violet-600 text-white shadow-lg mb-3 group-hover:scale-110 transition-transform">
@@ -98,7 +100,7 @@ export default function HeroSection() {
                 <span className="font-semibold text-slate-900">
                   Ask a Question
                 </span>
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -108,6 +110,7 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      <AskModal open={askOpen} onClose={() => setAskOpen(false)} />
     </section>
   );
 }
