@@ -38,7 +38,7 @@ export default function PlansSection() {
     {
       name: "Corporate",
       features: [
-        "Unlimited consultations",
+        "8 consultations / month",
         "Contract drafting & negotiation",
         "On-call legal support",
         "Integrated CRM — full analytics",
@@ -47,7 +47,7 @@ export default function PlansSection() {
         "Multi-location support (UAE-wide)",
         "Bespoke SLA & reporting",
       ],
-      price: "Custom",
+      price: "AED 3999/mo ",
       cta: "Talk to Sales",
       recommended: false,
     },

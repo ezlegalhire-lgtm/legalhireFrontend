@@ -12,14 +12,14 @@ export default function HowItWorksSection() {
 
           <div className="grid items-stretch gap-3 h-full">
             <h3 className="text-2xl font-bold text-purple-600 mb-4">
-              Service Steps
+             ONE-TIME SERVICE 
             </h3>
             <div className="card-neo px-3 py-3 flex items-center gap-4  shadow-sm hover:shadow-md transition fade-in">
               <div className="text-yellow-500 text-4xl">➕</div>
               <div className="text-left">
                 <h4 className="font-bold text-yellow-600 text-2xl">Select</h4>
                 <p className="text-slate-600 text-md">
-                  Choose from over 40+ different services tailored to your need.
+                 Browse from a wide range of one-time legal services based on your specific requirement.
                 </p>
               </div>
             </div>
@@ -29,7 +29,7 @@ export default function HowItWorksSection() {
               <div className="text-left">
                 <h4 className="font-bold text-orange-600 text-2xl">Pay</h4>
                 <p className="text-slate-600 text-lg">
-                  Securely pay using card checkout with instant confirmation.
+                  Complete your payment online using a secure checkout. You will receive confirmation once your request is submitted.
                 </p>
               </div>
             </div>
@@ -39,7 +39,7 @@ export default function HowItWorksSection() {
               <div className="text-left">
                 <h4 className="font-bold text-pink-600 text-2xl">Manage</h4>
                 <p className="text-slate-600 text-lg">
-                  Schedule time, join video calls, and share documents securely.
+                Schedule consultations, join video calls, and upload or receive documents securely from your dashboard.
                 </p>
               </div>
             </div>
@@ -49,14 +49,14 @@ export default function HowItWorksSection() {
               <div className="text-left">
                 <h4 className="font-bold text-fuchsia-600 text-2xl">Support</h4>
                 <p className="text-slate-600 text-lg">
-                  Follow up within your dashboard for ongoing legal assistance.
+                  Continue communication and receive updates or clarifications related to your service directly through the platform.
                 </p>
               </div>
             </div>
           </div>
           <div className="grid items-stretch gap-3">
             <h3 className="text-2xl font-bold text-purple-600 mb-4">
-              Monthly Retainer Steps
+              MONTHLY RETAINER PLANS
             </h3>
             <div className="card-neo px-3 py-3 flex items-center gap-4  shadow-sm hover:shadow-md transition fade-in">
               <div className="text-yellow-500 text-4xl">🏠</div>
@@ -65,8 +65,7 @@ export default function HowItWorksSection() {
                   Plan Selection
                 </h4>
                 <p className="text-slate-600 text-md">
-                  Choose between Starter, Growth, or Corporate plans.Choose
-                  between Starter,
+                  Select from Starter, Growth, or Corporate plans based on the level of ongoing legal support you require.
                 </p>
               </div>
             </div>
@@ -74,11 +73,10 @@ export default function HowItWorksSection() {
               <div className="text-yellow-500 text-4xl">💰</div>
               <div className="text-left">
                 <h4 className="font-bold text-xl sm:text-2xl text-orange-600">
-                  Billing Flexibility
+                  Billing & Activation
                 </h4>
                 <p className="text-slate-600 text-sm">
-                  Choose between Starter, Growth, or Corporate plans.Choose
-                  between Starter,
+                  Your retainer is activated upon subscription, with clear monthly billing and service limits as per the selected plan.
                 </p>
               </div>
             </div>
@@ -86,11 +84,10 @@ export default function HowItWorksSection() {
               <div className="text-yellow-500 text-4xl">⚙️</div>
               <div className="text-left">
                 <h4 className="font-bold text-xl sm:text-2xl text-red-600">
-                  CRM Integration
+                  Centralized Legal Management
                 </h4>
                 <p className="text-slate-600 text-sm">
-                  Choose between Starter, Growth, or Corporate plans.Choose
-                  between Starter,
+                  Access consultations, document reviews, notices, and ongoing advice through a single dashboard without repeated payments
                 </p>
               </div>
             </div>
@@ -98,11 +95,10 @@ export default function HowItWorksSection() {
               <div className="text-yellow-500 text-4xl">🎧</div>
               <div className="text-left">
                 <h4 className="font-bold text-xl sm:text-2xl text-fuchsia-600">
-                  Priority Support
+                 Priority Assistance
                 </h4>
                 <p className="text-slate-600 text-sm">
-                  Choose between Starter, Growth, or Corporate plans.Choose
-                  between Starter,
+                  Retainer clients receive priority handling and structured response timelines based on the plan selected.
                 </p>
               </div>
             </div>

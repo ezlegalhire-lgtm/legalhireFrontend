@@ -69,7 +69,7 @@ function QADetails({ service }: any) {
                     />
                   ))}
                 </div>
-                <span className="text-slate-600">4.9 (127 reviews)</span>
+                {/* <span className="text-slate-600">4.9 (127 reviews)</span> */}
               </div>
 
               <div className="flex flex-wrap items-center gap-4">

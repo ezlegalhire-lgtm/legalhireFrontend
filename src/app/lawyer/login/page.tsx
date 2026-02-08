@@ -322,7 +322,7 @@ export default function LawyerLoginPage() {
           {/* Support */}
           <p className="text-center text-sm text-gray-600 mt-6">
             Need help accessing your account?{' '}
-            <a href="mailto:support@daralhaqqoq.com" className="text-indigo-600 hover:text-indigo-700 font-medium">
+            <a href="mailto:help@ezlegalhire.com'" className="text-indigo-600 hover:text-indigo-700 font-medium">
               Contact Admin Support
             </a>
           </p>

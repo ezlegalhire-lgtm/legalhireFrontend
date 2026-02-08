@@ -98,7 +98,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="mailto:info@daralhaqooq.com"
+                href="mailto:help@ezlegalhire.com "
                 className="flex items-center gap-3 p-3 rounded-xl bg-white border-2 border-slate-200 hover:border-purple-300 hover:shadow-md transition-all group"
               >
                 <div className="w-10 h-10 bg-gradient-to-br from-purple-100 to-violet-100 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">

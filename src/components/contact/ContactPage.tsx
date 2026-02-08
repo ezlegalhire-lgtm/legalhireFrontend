@@ -105,7 +105,7 @@ export default function ContactPage() {
               </h3>
 
               <a
-                href="mailto:info@daralhaqooq.com"
+                href="mailto:help@ezlegalhire.com "
                  className="text-xl font-extrabold text-purple-600 block hover:text-purple-700 transition-colors"
               >
                 help@ezlegalhire.com
