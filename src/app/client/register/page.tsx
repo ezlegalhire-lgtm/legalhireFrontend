@@ -257,7 +257,7 @@ export default function ClientRegisterPage() {
             </div>
             <div>
               <div className="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
-                Dar Al Haqooq
+               EZ Legal Hire 
               </div>
               <div className="text-xs text-gray-600">Legal Consultancy</div>
             </div>

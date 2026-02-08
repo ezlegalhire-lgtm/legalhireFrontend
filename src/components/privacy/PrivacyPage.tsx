@@ -28,7 +28,7 @@ export default function PrivacyPage() {
           {/* Introduction */}
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8">
             <p className="text-gray-700 leading-relaxed">
-              At <strong>Dar Al Haqooq Legal Consultancy LLC</strong>, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our online legal consultation platform.
+              At <strong>EZ Legal Hire Legal Consultancy LLC</strong>, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our online legal consultation platform.
             </p>
           </div>
 
@@ -339,7 +339,7 @@ export default function PrivacyPage() {
                 <div className="flex items-start gap-3">
                   <Globe className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-gray-700 font-medium">Dar Al Haqooq Legal Consultancy LLC</p>
+                    <p className="text-gray-700 font-medium">EZ Legal Hire  Legal Consultancy LLC</p>
                     <p className="text-gray-600 text-sm">903 Al Serkal Building, Port Saeed, Dubai, UAE</p>
                   </div>
                 </div>

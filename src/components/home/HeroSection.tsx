@@ -19,7 +19,7 @@ export default function HeroSection() {
           <div>
             {/* Subtitle */}
             <div className="text-[12px] sm:text-[13px] text-purple-600 font-semibold tracking-wide">
-              DAR AL HAQOOQ LEGAL CONSULTANCY LLC ®
+             EZ Legal Hire  CONSULTANCY LLC ®
             </div>
             <div className="text-sm text-slate-600 mb-1">
               In Association with Nawal Salem Advocates and Legal Consultants

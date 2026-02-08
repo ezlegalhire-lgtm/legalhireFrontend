@@ -28,7 +28,7 @@ export default function TermsPage() {
           {/* Introduction */}
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-8">
             <p className="text-gray-700 leading-relaxed mb-4">
-              Welcome to <strong>Dar Al Haqooq Legal Consultancy LLC</strong>. These Terms of Service (&quot;Terms&quot;) govern your use of our online legal consultation platform and services. By accessing or using our platform, you agree to be bound by these Terms.
+              Welcome to <strong>EZ Legal Hire  Legal Consultancy LLC</strong>. These Terms of Service (&quot;Terms&quot;) govern your use of our online legal consultation platform and services. By accessing or using our platform, you agree to be bound by these Terms.
             </p>
             <p className="text-gray-700 leading-relaxed">
               Please read these Terms carefully before using our services. If you do not agree with any part of these Terms, you must not use our platform.
@@ -77,7 +77,7 @@ export default function TermsPage() {
                   By creating an account, booking a consultation, or using any of our services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy.
                 </p>
                 <p className="text-gray-700">
-                  These Terms constitute a legally binding agreement between you and Dar Al Haqooq Legal Consultancy LLC.
+                  These Terms constitute a legally binding agreement between you and EZ Legal Hire  Legal Consultancy LLC.
                 </p>
               </div>
             </section>
@@ -155,7 +155,7 @@ export default function TermsPage() {
 
                 <h3 className="text-lg font-semibold text-gray-900 mt-6">3.4 Platform Role</h3>
                 <p className="text-gray-700">
-                  Dar Al Haqooq acts as a platform connecting clients with licensed lawyers. We do not provide legal advice directly but facilitate consultations with qualified legal professionals.
+                  EZ Legal Hire  acts as a platform connecting clients with licensed lawyers. We do not provide legal advice directly but facilitate consultations with qualified legal professionals.
                 </p>
               </div>
             </section>
@@ -334,7 +334,7 @@ export default function TermsPage() {
               
               <div className="space-y-4 ml-14">
                 <p className="text-gray-700">
-                  All content on the platform, including text, graphics, logos, icons, images, software, and design, is the property of Dar Al Haqooq Legal Consultancy LLC and protected by UAE and international intellectual property laws.
+                  All content on the platform, including text, graphics, logos, icons, images, software, and design, is the property of EZ Legal Hire  Legal Consultancy LLC and protected by UAE and international intellectual property laws.
                 </p>
                 <p className="text-gray-700">
                   You may not reproduce, distribute, modify, or create derivative works without our written permission.
@@ -371,7 +371,7 @@ export default function TermsPage() {
 
                 <h3 className="text-lg font-semibold text-gray-900 mt-6">9.4 Limitation of Liability</h3>
                 <p className="text-gray-700">
-                  To the maximum extent permitted by law, Dar Al Haqooq Legal Consultancy LLC shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the platform.
+                  To the maximum extent permitted by law, EZ Legal Hire  Legal Consultancy LLC shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the platform.
                 </p>
               </div>
             </section>
@@ -469,7 +469,7 @@ export default function TermsPage() {
               <div className="space-y-4 ml-14">
                 <h3 className="text-lg font-semibold text-gray-900">13.1 Entire Agreement</h3>
                 <p className="text-gray-700">
-                  These Terms, together with our Privacy Policy, constitute the entire agreement between you and Dar Al Haqooq Legal Consultancy LLC.
+                  These Terms, together with our Privacy Policy, constitute the entire agreement between you and EZ Legal Hire  Legal Consultancy LLC.
                 </p>
 
                 <h3 className="text-lg font-semibold text-gray-900 mt-6">13.2 Severability</h3>
@@ -502,7 +502,7 @@ export default function TermsPage() {
                     <FileText className="w-4 h-4 text-indigo-600" />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900">Dar Al Haqooq Legal Consultancy LLC</p>
+                    <p className="font-medium text-gray-900">EZ Legal Hire Consultancy LLC</p>
                     <p className="text-sm text-gray-600">Licensed Legal Consultancy in Dubai, UAE</p>
                   </div>
                 </div>
@@ -550,7 +550,7 @@ export default function TermsPage() {
               <CheckCircle className="w-6 h-6 text-violet-600 flex-shrink-0 mt-1" />
               <div>
                 <p className="text-violet-900 font-medium mb-2">
-                  By using Dar Al Haqooq Legal Consultancy platform, you acknowledge that you have read, understood, and agree to these Terms of Service.
+                  By using EZ Legal Hire Legal Consultancy platform, you acknowledge that you have read, understood, and agree to these Terms of Service.
                 </p>
                 <p className="text-sm text-violet-700">
                   Last reviewed and accepted by continuing to use our services.

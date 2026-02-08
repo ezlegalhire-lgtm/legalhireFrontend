@@ -1,36 +1,49 @@
 //src/app/lawyer/register/page.tsx
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { Mail, ArrowRight, Scale, CheckCircle, AlertCircle, User, Phone, Briefcase, FileText, Award, Building } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import {
+  Mail,
+  ArrowRight,
+  Scale,
+  CheckCircle,
+  AlertCircle,
+  User,
+  Phone,
+  Briefcase,
+  FileText,
+  Award,
+  Building,
+} from "lucide-react";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_CMS_API_URL || 'https://cms.ezlegalhire.com';
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_CMS_API_URL || "https://cms.ezlegalhire.com";
 
 export default function LawyerRegisterPage() {
   const router = useRouter();
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    licenseNumber: '',
-    specialization: '',
-    yearsOfExperience: '',
-    barAssociation: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    licenseNumber: "",
+    specialization: "",
+    yearsOfExperience: "",
+    barAssociation: "",
+    message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
   // Redirect if already logged in
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const token = localStorage.getItem('lawyerToken');
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("lawyerToken");
       if (token) {
-        router.push('/lawyer/dashboard');
+        router.push("/lawyer/dashboard");
       }
     }
   }, [router]);
@@ -39,32 +52,32 @@ export default function LawyerRegisterPage() {
     const errors: string[] = [];
 
     if (!formData.firstName.trim() || formData.firstName.trim().length < 2) {
-      errors.push('First name must be at least 2 characters');
+      errors.push("First name must be at least 2 characters");
     }
 
     if (!formData.lastName.trim() || formData.lastName.trim().length < 2) {
-      errors.push('Last name must be at least 2 characters');
+      errors.push("Last name must be at least 2 characters");
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      errors.push('Please enter a valid email address');
+      errors.push("Please enter a valid email address");
     }
 
     if (!formData.phone.trim() || formData.phone.trim().length < 10) {
-      errors.push('Please enter a valid phone number');
+      errors.push("Please enter a valid phone number");
     }
 
     if (!formData.licenseNumber.trim()) {
-      errors.push('License number is required');
+      errors.push("License number is required");
     }
 
     if (!formData.specialization.trim()) {
-      errors.push('Specialization is required');
+      errors.push("Specialization is required");
     }
 
     if (!formData.yearsOfExperience.trim()) {
-      errors.push('Years of experience is required');
+      errors.push("Years of experience is required");
     }
 
     return errors;
@@ -72,7 +85,7 @@ export default function LawyerRegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     // Validate form
     const validationErrors = validateForm();
@@ -84,47 +97,50 @@ export default function LawyerRegisterPage() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/public/lawyer/request-access`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        `${API_BASE_URL}/api/public/lawyer/request-access`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            firstName: formData.firstName.trim(),
+            lastName: formData.lastName.trim(),
+            email: formData.email.toLowerCase().trim(),
+            phone: formData.phone.trim(),
+            licenseNumber: formData.licenseNumber.trim(),
+            specialization: formData.specialization.trim(),
+            yearsOfExperience: parseInt(formData.yearsOfExperience),
+            barAssociation: formData.barAssociation.trim() || undefined,
+            message: formData.message.trim() || undefined,
+          }),
         },
-        body: JSON.stringify({
-          firstName: formData.firstName.trim(),
-          lastName: formData.lastName.trim(),
-          email: formData.email.toLowerCase().trim(),
-          phone: formData.phone.trim(),
-          licenseNumber: formData.licenseNumber.trim(),
-          specialization: formData.specialization.trim(),
-          yearsOfExperience: parseInt(formData.yearsOfExperience),
-          barAssociation: formData.barAssociation.trim() || undefined,
-          message: formData.message.trim() || undefined,
-        }),
-      });
+      );
 
       // Check if response has content before parsing
-      const contentType = response.headers.get('content-type');
+      const contentType = response.headers.get("content-type");
       let data;
-      
-      if (contentType && contentType.includes('application/json')) {
+
+      if (contentType && contentType.includes("application/json")) {
         const text = await response.text();
         if (text) {
           try {
             data = JSON.parse(text);
           } catch (e) {
-            console.error('JSON parse error:', e);
-            throw new Error('Invalid server response. Please try again.');
+            console.error("JSON parse error:", e);
+            throw new Error("Invalid server response. Please try again.");
           }
         } else {
-          throw new Error('Empty response from server');
+          throw new Error("Empty response from server");
         }
       } else {
-        throw new Error('Server returned an invalid response format');
+        throw new Error("Server returned an invalid response format");
       }
 
       if (!response.ok) {
         if (data?.details && Array.isArray(data.details)) {
-          throw new Error(data.details.join(', '));
+          throw new Error(data.details.join(", "));
         }
         throw new Error(data?.error || `Request failed (${response.status})`);
       }
@@ -132,11 +148,15 @@ export default function LawyerRegisterPage() {
       // Success - show success message
       setSuccess(true);
     } catch (err) {
-      console.error('Request error:', err);
-      if (err instanceof TypeError && err.message.includes('Failed to fetch')) {
-        setError('Network error. Please check your connection and try again.');
+      console.error("Request error:", err);
+      if (err instanceof TypeError && err.message.includes("Failed to fetch")) {
+        setError("Network error. Please check your connection and try again.");
       } else {
-        setError(err instanceof Error ? err.message : 'Request failed. Please try again.');
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Request failed. Please try again.",
+        );
       }
     } finally {
       setLoading(false);
@@ -155,7 +175,8 @@ export default function LawyerRegisterPage() {
             Request Submitted Successfully!
           </h1>
           <p className="text-gray-600 mb-6">
-            Thank you for your interest in joining our legal team. We&apos;ve received your access request and will review your credentials.
+            Thank you for your interest in joining our legal team. We&apos;ve
+            received your access request and will review your credentials.
           </p>
           <div className="bg-violet-50 border border-violet-200 rounded-lg p-4 mb-6">
             <p className="text-sm text-violet-800 mb-2">
@@ -169,7 +190,7 @@ export default function LawyerRegisterPage() {
             </ul>
           </div>
           <p className="text-sm text-gray-600 mb-6">
-            We&apos;ve sent a confirmation email to{' '}
+            We&apos;ve sent a confirmation email to{" "}
             <strong>{formData.email}</strong>
           </p>
           <Link href="/home">
@@ -193,12 +214,15 @@ export default function LawyerRegisterPage() {
             </div>
             <div>
               <div className="text-lg font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
-                Dar Al Haqooq
+                EZ Legal Hire
               </div>
               <div className="text-xs text-gray-600">Legal Consultancy</div>
             </div>
           </Link>
-          <Link href="/home" className="text-sm text-gray-600 hover:text-indigo-600 font-medium">
+          <Link
+            href="/home"
+            className="text-sm text-gray-600 hover:text-indigo-600 font-medium"
+          >
             Back to Home
           </Link>
         </div>
@@ -231,7 +255,8 @@ export default function LawyerRegisterPage() {
                     Lawyer accounts require admin approval
                   </p>
                   <p className="text-sm text-violet-800">
-                    Fill out this form to request access. Our team will review your credentials and contact you within 2-3 business days.
+                    Fill out this form to request access. Our team will review
+                    your credentials and contact you within 2-3 business days.
                   </p>
                 </div>
               </div>
@@ -242,7 +267,9 @@ export default function LawyerRegisterPage() {
               <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
                 <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-sm text-red-800 font-medium">Request Failed</p>
+                  <p className="text-sm text-red-800 font-medium">
+                    Request Failed
+                  </p>
                   <p className="text-sm text-red-700 mt-1">{error}</p>
                 </div>
               </div>
@@ -253,7 +280,10 @@ export default function LawyerRegisterPage() {
               {/* Name Fields */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="firstName"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     First Name *
                   </label>
                   <div className="relative">
@@ -265,7 +295,9 @@ export default function LawyerRegisterPage() {
                       type="text"
                       placeholder="John"
                       value={formData.firstName}
-                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, firstName: e.target.value })
+                      }
                       className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                       required
                     />
@@ -273,7 +305,10 @@ export default function LawyerRegisterPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="lastName"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Last Name *
                   </label>
                   <div className="relative">
@@ -285,7 +320,9 @@ export default function LawyerRegisterPage() {
                       type="text"
                       placeholder="Doe"
                       value={formData.lastName}
-                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, lastName: e.target.value })
+                      }
                       className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                       required
                     />
@@ -295,7 +332,10 @@ export default function LawyerRegisterPage() {
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Email Address *
                 </label>
                 <div className="relative">
@@ -307,7 +347,9 @@ export default function LawyerRegisterPage() {
                     type="email"
                     placeholder="lawyer@example.com"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     required
                   />
@@ -316,7 +358,10 @@ export default function LawyerRegisterPage() {
 
               {/* Phone Field */}
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Phone Number *
                 </label>
                 <div className="relative">
@@ -328,7 +373,9 @@ export default function LawyerRegisterPage() {
                     type="tel"
                     placeholder="+971 50 123 4567"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     required
                   />
@@ -340,10 +387,13 @@ export default function LawyerRegisterPage() {
                 <h3 className="text-sm font-medium text-gray-700 mb-4">
                   Professional Information
                 </h3>
-                
+
                 <div className="space-y-4">
                   <div>
-                    <label htmlFor="licenseNumber" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="licenseNumber"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       License Number *
                     </label>
                     <div className="relative">
@@ -355,7 +405,12 @@ export default function LawyerRegisterPage() {
                         type="text"
                         placeholder="e.g., UAE-LAW-12345"
                         value={formData.licenseNumber}
-                        onChange={(e) => setFormData({ ...formData, licenseNumber: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            licenseNumber: e.target.value,
+                          })
+                        }
                         className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                         required
                       />
@@ -364,7 +419,10 @@ export default function LawyerRegisterPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="specialization" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="specialization"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Specialization *
                       </label>
                       <div className="relative">
@@ -374,7 +432,12 @@ export default function LawyerRegisterPage() {
                         <select
                           id="specialization"
                           value={formData.specialization}
-                          onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              specialization: e.target.value,
+                            })
+                          }
                           className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                           required
                         >
@@ -382,10 +445,16 @@ export default function LawyerRegisterPage() {
                           <option value="Corporate Law">Corporate Law</option>
                           <option value="Commercial Law">Commercial Law</option>
                           <option value="Family Law">Family Law</option>
-                          <option value="Real Estate Law">Real Estate Law</option>
+                          <option value="Real Estate Law">
+                            Real Estate Law
+                          </option>
                           <option value="Criminal Law">Criminal Law</option>
-                          <option value="Immigration Law">Immigration Law</option>
-                          <option value="Intellectual Property">Intellectual Property</option>
+                          <option value="Immigration Law">
+                            Immigration Law
+                          </option>
+                          <option value="Intellectual Property">
+                            Intellectual Property
+                          </option>
                           <option value="Labor Law">Labor Law</option>
                           <option value="Other">Other</option>
                         </select>
@@ -393,7 +462,10 @@ export default function LawyerRegisterPage() {
                     </div>
 
                     <div>
-                      <label htmlFor="yearsOfExperience" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="yearsOfExperience"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Years of Experience *
                       </label>
                       <input
@@ -403,7 +475,12 @@ export default function LawyerRegisterPage() {
                         max="60"
                         placeholder="e.g., 5"
                         value={formData.yearsOfExperience}
-                        onChange={(e) => setFormData({ ...formData, yearsOfExperience: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            yearsOfExperience: e.target.value,
+                          })
+                        }
                         className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                         required
                       />
@@ -411,7 +488,10 @@ export default function LawyerRegisterPage() {
                   </div>
 
                   <div>
-                    <label htmlFor="barAssociation" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="barAssociation"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Bar Association (Optional)
                     </label>
                     <div className="relative">
@@ -423,14 +503,22 @@ export default function LawyerRegisterPage() {
                         type="text"
                         placeholder="e.g., Dubai Bar Association"
                         value={formData.barAssociation}
-                        onChange={(e) => setFormData({ ...formData, barAssociation: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            barAssociation: e.target.value,
+                          })
+                        }
                         className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Additional Information (Optional)
                     </label>
                     <textarea
@@ -438,7 +526,9 @@ export default function LawyerRegisterPage() {
                       rows={4}
                       placeholder="Tell us about your experience, expertise, or any additional information..."
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
                       className="block w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                     />
                   </div>
@@ -471,7 +561,9 @@ export default function LawyerRegisterPage() {
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Already have an account?</span>
+                <span className="px-2 bg-white text-gray-500">
+                  Already have an account?
+                </span>
               </div>
             </div>
 
@@ -485,8 +577,11 @@ export default function LawyerRegisterPage() {
 
           {/* Support */}
           <p className="text-center text-sm text-gray-600 mt-6">
-            Questions about joining our team?{' '}
-            <a href="mailto:careers@daralhaqqoq.com" className="text-indigo-600 hover:text-indigo-700 font-medium">
+            Questions about joining our team?{" "}
+            <a
+              href="mailto:careers@daralhaqqoq.com"
+              className="text-indigo-600 hover:text-indigo-700 font-medium"
+            >
               Contact HR Department
             </a>
           </p>

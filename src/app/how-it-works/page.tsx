@@ -381,7 +381,7 @@ export default function HowItWorksPage() {
                   Traditional Firms
                 </th>
                 <th className="p-4 text-center font-bold text-white bg-gradient-to-r from-purple-600 to-violet-600">
-                  Dar Al Haqooq
+                  EZ Legal Hire
                 </th>
               </tr>
             </thead>
@@ -503,7 +503,7 @@ export default function HowItWorksPage() {
             Experience the Future of Legal Services
           </h2>
           <p className="text-white/90 text-lg mb-8">
-            Join hundreds of UAE clients using Dar Al Haqooq today.
+            Join hundreds of UAE clients using EZ Legal Hire today.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <button className="btn-solid px-8 py-4 text-lg bg-white text-purple-600 hover:bg-purple-50 w-full md:w-fit">

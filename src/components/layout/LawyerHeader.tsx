@@ -84,7 +84,7 @@ export default function LawyerHeader() {
             <Scale className="w-5 h-5 text-white" />
           </div>
           <div className="leading-tight">
-            <p className="text-sm font-semibold text-slate-900 group-hover:text-purple-700 transition-colors">Dar Al Haqooq</p>
+            <p className="text-sm font-semibold text-slate-900 group-hover:text-purple-700 transition-colors">EZ Legal Hire </p>
             <p className="text-[11px] text-slate-500 -mt-0.5">Legal Consultancy</p>
           </div>
         </Link>
