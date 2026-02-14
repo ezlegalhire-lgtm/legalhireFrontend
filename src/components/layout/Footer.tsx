@@ -52,7 +52,7 @@ export default function Footer() {
           <div>
             <Link
               href="/home"
-              className="flex items-center gap-3 mb-6 group w-fit"
+              className="flex items-center gap-1 mb-6 group w-fit"
             >
               <Image
                 src="/EZLogo.png"
@@ -62,14 +62,22 @@ export default function Footer() {
                 priority
                 className="h-12 w-12 object-contain group-hover:opacity-90 transition-opacity"
               />
-              <div className="flex flex-col">
+              <Image
+                src="/logo3.jpeg"
+                alt="LegalHire Logo"
+                width={100}
+                height={100}
+                priority
+                className="h-24 w-24 object-contain group-hover:opacity-90 transition-opacity"
+              />
+              {/* <div className="flex flex-col">
                 <span className="text-2xl font-black bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-pink-500 transition-all leading-none">
                   LEGALHIRE
                 </span>
                 <span className="text-[10px] font-semibold bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent mt-0.5">
                   UAE&apos;s First Integrated Legaltech Portal
                 </span>
-              </div>
+              </div> */}
             </Link>
 
             <p className="text-sm text-slate-600 mb-6 leading-relaxed max-w-md">
